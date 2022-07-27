@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.userImg {
+    background-color: grey;
+    border-radius: 50%;
+}
+.icon {
+    background-color: grey;
+    border-radius: 50%;
+}
+
