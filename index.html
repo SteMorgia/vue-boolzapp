@@ -6,120 +6,86 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/style.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-        <title>Document</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+        <title>Whatsapp Web</title>
     </head>
     <body>
-        
-        
-        <div id="app">
-            <div class="container mt-3">
-                <div class="row">
-                    <div class="col-4 p-0">
-                        <header class="d-flex justify-content-between bg-secondary p-2">
-                            <div class="userInfo">
-                                <span class="userImg">IMG</span>
-                                <span>Stefano</span>
-                            </div>
-                            <div class="symbols">
-                                <span>X</span>
-                                <span>X</span>
-                                <span>X</span>
-                            </div>
-                        </header>
-                        <main class="d-flex flex-column">
-                            <div class="notifiche d-flex align-items-center bg-info">
-                                <span class="icon m-2">X</span>
-                                <div>
-                                    <span>Ricevi notifiche di nuovi messaggi</span> <br>
-                                    <span>Attiva notifiche desktop</span>
+        <header class="mainHeader"></header>
+        <main class="backgroundMain">
+            <div id="app">
+                <div class="container mt-3 myRules">
+                    <div class="row">
+                        <div class="col-4 p-0">
+                            <header class="d-flex justify-content-between align-items-center p-2 headerRules">
+                                <div class="userInfo">
+                                    <span class="userImg">IMG</span>
+                                    <span>Stefano</span>
                                 </div>
-                            </div>
-                            <div class="input-group input-group-sm mb-3">
-                                <span class="input-group-text" id="inputGroup-sizing-sm">Small</span>
-                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                            </div>
-                            <div class="chatContainer d-flex flex-column">
-                                <div class="chat d-flex mb-2">
-                                    <span class="userImg m-2">IMG</span>
+                                <div class="symbols">
+                                    <span><i class="fa-solid fa-circle-notch p-1"></i></span>
+                                    <span><i class="fa-solid fa-comment p-1"></i></span>
+                                    <span><i class="fa-solid fa-ellipsis-vertical p-1"></i></span>
+                                </div>
+                            </header>
+                            <main class="d-flex flex-column">
+                                <div class="notifiche d-flex align-items-center bg-info">
+                                    <span class="icon m-2"><i class="fa-solid fa-bell-slash p-3"></i></span>
                                     <div>
-                                        <span>Nome</span> <br>
-                                        <span>Ultimo messaggio inviato</span>
+                                        <span>Ricevi notifiche di nuovi messaggi</span> <br>
+                                        <span>Attiva notifiche desktop</span>
                                     </div>
                                 </div>
-                                <div class="chat d-flex mb-2">
-                                    <span class="userImg m-2">IMG</span>
-                                    <div>
-                                        <span>Nome</span> <br>
-                                        <span>Ultimo messaggio inviato</span>
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Small</span>
+                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                </div>
+                                <div class="chatContainer d-flex flex-column overflow-auto">
+                                    <div v-for="(contact, index) in contacts" class="chat d-flex align-items-center mb-2">
+                                        <div class="userImg m-2">
+                                            <img class="img-fluid" :src="'img/avatar'+ contact.avatar +'.jpg'" alt="">
+                                        </div>
+                                        <div>
+                                            <span>{{contact.name}}</span> <br>
+                                            <span>Ultimo messaggio inviato</span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="chat d-flex mb-2">
-                                    <span class="userImg m-2">IMG</span>
-                                    <div>
-                                        <span>Nome</span> <br>
-                                        <span>Ultimo messaggio inviato</span>
-                                    </div>
+    
+                            </main>
+                        </div>
+                        <div class="col-8 p-0">
+                            <header class="d-flex justify-content-between align-items-center headerRules p-2">
+                                <div class="userInfo">
+                                    <span class="userImg">IMG</span>
+                                    <span>Nome</span>
                                 </div>
-                                <div class="chat d-flex mb-2">
-                                    <span class="userImg m-2">IMG</span>
-                                    <div>
-                                        <span>Nome</span> <br>
-                                        <span>Ultimo messaggio inviato</span>
-                                    </div>
+                                <div class="symbols">
+                                    <span><i class="fa-solid fa-magnifying-glass p-1"></i></span>
+                                    <span><i class="fa-solid fa-umbrella-beach p-1"></i></span>
+                                    <span><i class="fa-solid fa-ellipsis-vertical p-1"></i></span>
                                 </div>
-                                <div class="chat d-flex mb-2">
-                                    <span class="userImg m-2">IMG</span>
-                                    <div>
-                                        <span>Nome</span> <br>
-                                        <span>Ultimo messaggio inviato</span>
-                                    </div>
+                            </header>
+                            <main class="mainChat">
+                                <div class="d-flex justify-content-end me-5 pt-5">
+                                    <div class="inviato p-2">Ciao</div>
                                 </div>
-                                <div class="chat d-flex mb-2">
-                                    <span class="userImg m-2">IMG</span>
-                                    <div>
-                                        <span>Nome</span> <br>
-                                        <span>Ultimo messaggio inviato</span>
-                                    </div>
+                                <div class="d-flex justify-content-start ms-5 pt-2">
+                                    <div class="ricevuto p-2">Buongiorno</div>
                                 </div>
-                                <div class="chat d-flex mb-2">
-                                    <span class="userImg m-2">IMG</span>
-                                    <div>
-                                        <span>Nome</span> <br>
-                                        <span>Ultimo messaggio inviato</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </main>
+                            </main>
+                            <footer class="d-flex justify-content-between align-items-center p-2 bg-light">
+                                <span><i class="fa-regular fa-face-smile"></i></span>
+                                <input class="text border border-success p-2 mb-2 border-opacity-50" type="text">
+                                <span><i class="fa-solid fa-microphone-lines"></i></span>
+                            </footer>
+                        </div>
                     </div>
-                    <div class="col-8 p-0">
-                        <header class="d-flex justify-content-between bg-secondary p-2">
-                            <div class="userInfo">
-                                <span class="userImg">IMG</span>
-                                <span>Stefano</span>
-                            </div>
-                            <div class="symbols">
-                                <span>X</span>
-                                <span>X</span>
-                                <span>X</span>
-                            </div>
-                        </header>
-                        <main class="mainChat">
-                            <div class="container d-flex">
-                                <div class="invitato">Ciao</div>
-                                <div class="ricevuto">Ciao a te!</div>
-                            </div>
-                        </main>
-                        <footer class="d-flex justify-content-between p-2">
-                            <span class="icon">X</span>
-                            <input class="text" type="text">
-                            <span class="icon">X</span>
-                        </footer>
-                    </div>
+                    
                 </div>
-                
             </div>
-        </div>
+        </main>
+        
+        
         
             
             
