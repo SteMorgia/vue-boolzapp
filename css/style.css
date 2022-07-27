@@ -11,4 +11,18 @@
     background-color: grey;
     border-radius: 50%;
 }
-.
+.mainChat {
+    height: 70vh;
+    background-image: url(../img/mine.jpg);
+}
+.text {
+    width: 80%;
+}
+.inviato {
+    background-color: darkseagreen;
+    align-self: flex-end;
+}
+.ricevuto {
+    background-color: #fff;
+    align-self: flex-start;
+}
