@@ -5,6 +5,7 @@
 }
 body {
     position: relative;
+    height:100vh;
 }
 .mainHeader {
     width: 100%;
@@ -15,6 +16,10 @@ body {
     height: 80vh;
     background-color: rgb(219, 219, 219);
 }
+.active {
+    background-color: lightgrey;
+}
+
 
 /* REGOLE CONTAINER PRINCIPALE*/
 .myRules {
@@ -34,17 +39,19 @@ body {
     height: 10vh;
 }
 .userImg {
-    background-color: grey;
-    border-radius: 50%;
     width: 50px;
     height: 50px;
+    border-radius: 50%;
+}
+.tonda {
+    border-radius: 50%;
 }
 .chatContainer {
     background-color: #fff;
     height: 64vh;
 }
 .icon {
-    background-color: grey;
+    background-color: white;
     border-radius: 50%;
 }
 

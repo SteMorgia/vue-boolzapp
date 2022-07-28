@@ -29,24 +29,23 @@
                             </header>
                             <main class="d-flex flex-column">
                                 <div class="notifiche d-flex align-items-center bg-info">
-                                    <span class="icon m-2"><i class="fa-solid fa-bell-slash p-3"></i></span>
+                                    <span class="icon m-2"><i class="fa-solid fa-bell-slash p-3 text-primary"></i></span>
                                     <div>
-                                        <span>Ricevi notifiche di nuovi messaggi</span> <br>
-                                        <span>Attiva notifiche desktop</span>
+                                        <span class="text-light">Ricevi notifiche di nuovi messaggi</span> <br>
+                                        <span class="text-light">Attiva notifiche desktop</span>
                                     </div>
                                 </div>
                                 <div class="input-group input-group-sm">
-                                    <span class="input-group-text" id="inputGroup-sizing-sm">Small</span>
-                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    <input type="text" class="form-control" placeholder="Cerca tra i contatti" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                                 </div>
                                 <div class="chatContainer d-flex flex-column overflow-auto">
-                                    <div v-for="(contact, index) in contacts" class="chat d-flex align-items-center mb-2">
+                                    <div v-for="(contact,index) in contacts" :class="(chatCorrente==index)? 'active': ' ' " class="chat d-flex align-items-center mb-2">
                                         <div class="userImg m-2">
-                                            <img class="img-fluid" :src="'img/avatar'+ contact.avatar +'.jpg'" alt="">
+                                            <img class="img-fluid tonda" :src="'img/avatar'+ contact.avatar +'.jpg'" alt="contact.name">
                                         </div>
                                         <div>
                                             <span>{{contact.name}}</span> <br>
-                                            <span>Ultimo messaggio inviato</span>
+                                            <small>Ultimo messaggio inviato</small>
                                         </div>
                                     </div>
                                 </div>
@@ -66,17 +65,16 @@
                                 </div>
                             </header>
                             <main class="mainChat">
-                                <div class="d-flex justify-content-end me-5 pt-5">
-                                    <div class="inviato p-2">Ciao</div>
-                                </div>
-                                <div class="d-flex justify-content-start ms-5 pt-2">
-                                    <div class="ricevuto p-2">Buongiorno</div>
+                                <div v-for="(element, index) in contacts[chatCorrente].messages" :class="(status==sent)? 'justify-content-end': 'justify-content-start' " class="d-flex me-5 pt-5">
+                                    <div :class="(status=='sent')? 'inviato': 'ricevuto'" class="p-2">{{element.message}}</div>
                                 </div>
                             </main>
-                            <footer class="d-flex justify-content-between align-items-center p-2 bg-light">
-                                <span><i class="fa-regular fa-face-smile"></i></span>
-                                <input class="text border border-success p-2 mb-2 border-opacity-50" type="text">
-                                <span><i class="fa-solid fa-microphone-lines"></i></span>
+                            <footer >
+                                <div class="d-flex justify-content-between align-items-center p-2 bg-light">
+                                    <span><i class="fa-regular fa-face-smile"></i></span>
+                                    <input class="text border border-success p-2 mb-2 border-opacity-50" placeholder="Scrivi un messaggio" type="text">
+                                    <span><i class="fa-solid fa-microphone-lines"></i></span>
+                                </div>
                             </footer>
                         </div>
                     </div>
