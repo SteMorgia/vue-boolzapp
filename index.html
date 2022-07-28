@@ -74,7 +74,7 @@
                             <footer >
                                 <div class="d-flex justify-content-between align-items-center p-2 bg-light">
                                     <span><i class="fa-regular fa-face-smile"></i></span>
-                                    <input class="text border border-success p-2 mb-2 border-opacity-50" placeholder="Scrivi un messaggio" type="text">
+                                    <input @keyup.enter="sendMessage" v-model="messaggio" class="text border border-success p-2 mb-2 border-opacity-50" placeholder="Scrivi un messaggio" type="text">
                                     <span><i class="fa-solid fa-microphone-lines"></i></span>
                                 </div>
                             </footer>

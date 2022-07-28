@@ -2,6 +2,7 @@ var app = new Vue ({
     el: '#app',
     data: {
         chatCorrente: 0,
+        messaggio:'',
         contacts: [
             {
             name: 'Michele',
@@ -169,6 +170,26 @@ var app = new Vue ({
     methods: {
         setActiveChat(index) {
             this.chatCorrente = index;
+        },
+        sendMessage() {
+            let nuovoMessaggio = {
+                message: this.messaggio,
+                date:'10/01/2020 15:51:00',
+                status:'sent'
+            }
+            this.contacts[this.chatCorrente].messages.push(nuovoMessaggio);
+            this.messaggio = '';
+            setTimeout(this.receiveMessage, 2000);
+        },
+        
+        receiveMessage() {
+            let nuovoMessaggioRicevuto = {
+                message: 'Ok!',
+                date:'10/01/2020 15:51:00',
+                status:'received'
+            }
+            this.contacts[this.chatCorrente].messages.push(nuovoMessaggioRicevuto);
         }
-    }
+    },
+
 })
