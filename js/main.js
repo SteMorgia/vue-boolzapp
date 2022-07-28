@@ -163,7 +163,12 @@ var app = new Vue ({
                 status: 'received'
                 }
                 ],
-            }
+            },
         ],
+    },
+    methods: {
+        setActiveChat(index) {
+            this.chatCorrente = index;
+        }
     }
 })

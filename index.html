@@ -39,7 +39,7 @@
                                     <input type="text" class="form-control" placeholder="Cerca tra i contatti" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                                 </div>
                                 <div class="chatContainer d-flex flex-column overflow-auto">
-                                    <div v-for="(contact,index) in contacts" :class="(chatCorrente==index)? 'active': ' ' " class="chat d-flex align-items-center mb-2">
+                                    <div @click="setActiveChat(index)" v-for="(contact,index) in contacts" :class="(chatCorrente==index)? 'active': ' ' " class="chat d-flex align-items-center mb-2">
                                         <div class="userImg m-2">
                                             <img class="img-fluid tonda" :src="'img/avatar'+ contact.avatar +'.jpg'" alt="contact.name">
                                         </div>
@@ -54,8 +54,10 @@
                         </div>
                         <div class="col-8 p-0">
                             <header class="d-flex justify-content-between align-items-center headerRules p-2">
-                                <div class="userInfo">
-                                    <span class="userImg">IMG</span>
+                                <div class="userInfo"> 
+                                    <div class="userImg">
+                                        <img src="" alt="">
+                                    </div>
                                     <span>Nome</span>
                                 </div>
                                 <div class="symbols">
@@ -65,8 +67,8 @@
                                 </div>
                             </header>
                             <main class="mainChat">
-                                <div v-for="(element, index) in contacts[chatCorrente].messages" :class="(status==sent)? 'justify-content-end': 'justify-content-start' " class="d-flex me-5 pt-5">
-                                    <div :class="(status=='sent')? 'inviato': 'ricevuto'" class="p-2">{{element.message}}</div>
+                                <div v-for="(element, index) in contacts[chatCorrente].messages" :class="(element.status=='sent')? 'justify-content-end': 'justify-content-start' " class="d-flex mx-5 pt-5">
+                                    <div :class="(element.status=='sent')? 'inviato': 'ricevuto'" class="p-2">{{element.message}}</div>
                                 </div>
                             </main>
                             <footer >
@@ -82,26 +84,6 @@
                 </div>
             </div>
         </main>
-        
-        
-        
-            
-            
-
-
-
-
-
-
-
-
-
-
-        
-
-
-
-
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
         <script src="js/main.js"></script>
     </body>
