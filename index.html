@@ -17,8 +17,10 @@
                     <div class="row">
                         <div class="col-4 p-0">
                             <header class="d-flex justify-content-between align-items-center p-2 headerRules">
-                                <div class="userInfo">
-                                    <span class="userImg">IMG</span>
+                                <div class="userInfo d-flex align-items-center">
+                                    <div class="userImg">
+                                        <img class="img-fluid tonda" src="img/avatar_1.jpg" alt="Stefano">
+                                    </div>
                                     <span>Stefano</span>
                                 </div>
                                 <div class="symbols">
@@ -54,11 +56,11 @@
                         </div>
                         <div class="col-8 p-0">
                             <header class="d-flex justify-content-between align-items-center headerRules p-2">
-                                <div class="userInfo"> 
+                                <div class="userInfo d-flex align-items-center"> 
                                     <div class="userImg">
-                                        <img src="" alt="">
+                                        <img class="img-fluid tonda" :src=" 'img/avatar' + contacts[chatCorrente].avatar + '.jpg'" alt="">
                                     </div>
-                                    <span>Nome</span>
+                                    <span>{{contacts[chatCorrente].name}}</span>
                                 </div>
                                 <div class="symbols">
                                     <span><i class="fa-solid fa-magnifying-glass p-1"></i></span>
